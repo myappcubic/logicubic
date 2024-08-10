@@ -1,0 +1,56 @@
+---
+title: Dijkstra's Algorithm
+description: Dijkstra's algorithm finds the shortest paths from a source node to all other nodes in a positively weighted graph.
+# image: a thumbnail image to be shown in social media cards
+keywords: [Dijkstra's, Algorithm, Shortest Paths]
+---
+
+# Dijkstra's Algorithm
+
+> Dijkstra's algorithm finds the `shortest paths` from a `source` node to **all** other nodes in a **positively** weighted graph.
+
+It works by _iteratively_ selecting the node with the _smallest known distance_ from the starting node, updating the distances to its neighboring nodes, and repeating this process until it has visited all nodes in the graph or until the shortest path to the target node is found.
+
+A `priority queue` is the key in Dijkstra's Algorithm. It allows the algorithm to efficiently retrieve the node with the smallest distance at each step. Without a priority queue, we would have to scan through all nodes to find the smallest distance, leading to a much slower algorithm.
+
+```python title="dijkstra/graph.py"
+graph = {
+    'A': {'B': 1, 'C': 4},
+    'B': {'A': 1, 'D': 2, 'E': 5},
+    'C': {'A': 4, 'F': 6},
+    'D': {'B': 2},
+    'E': {'B': 5, 'F': 3},
+    'F': {'C': 6, 'E': 3}
+}
+```
+
+## A `start`ing point and a `distances` list
+
+By the definiation of Dijkstra's algorithm, it starts from a source (`start`) node (vertex), and calculates its shortest distances to _all_ other nodes. We use `distances[node]` to track the `distance` from the `start` to the rest of `node`s (vertices) based on the `weight` in the `graph`. `distances[start]` is set to be zero.
+
+```python
+start = "A"
+distances = { vertex: float('inf') for vertex in graph }
+distances[start] = 0
+distances
+```
+
+```bash
+{'A': 0, 'B': inf, 'C': inf, 'D': inf, 'E': inf, 'F': inf}
+```
+
+```python
+import heapq
+pq = []
+heapq.heappush(pq, (0, start))
+
+while pq:
+    dist, node = heapq.heappop(pq)
+    if distances[node] < dist:
+        continue
+    for neighbor, weight in graph[node].items():
+        new_dist = dist + weight
+        if distances[neighbor] > new_dist:
+            distances[neighbor] = new_dist
+            heapq.heappush(pq, (new_dist, neighbor))
+```

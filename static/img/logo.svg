@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-combine">
+  <!-- First Rectangle -->
+  <rect width="8" height="8" x="2" y="2" rx="2" stroke="#ffd1dc" fill="#ffd1dc"/>
+  <!-- First Path -->
+  <path d="M14 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2" stroke="#c2e9fb" fill="none"/>
+  <!-- Second Path -->
+  <path d="M20 2c1.1 0 2 .9 2 2v4c0 1.1-.9 2-2 2" stroke="#f8c8dc" fill="none"/>
+  <!-- Third Path -->
+  <path d="M10 18H5c-1.7 0-3-1.3-3-3v-1" stroke="#f9e9c2" fill="none"/>
+  <!-- Polyline -->
+  <polyline points="7 21 10 18 7 15" stroke="#b3c2bf" fill="none"/>
+  <!-- Second Rectangle -->
+  <rect width="8" height="8" x="14" y="14" rx="2" stroke="#c2d4d8" fill="#c2d4d8"/>
+</svg>

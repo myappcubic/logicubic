@@ -1,0 +1,56 @@
+---
+title: Bellman-Ford Algorithm
+description: Bellman-Ford algorithm computes shortest paths between all pairs of nodes.
+# image: a thumbnail image to be shown in social media cards
+keywords: [Bellman-Ford, Algorithm, Shortest Paths]
+---
+
+# Bellman-Ford Algorithm
+
+> Bellan-Ford finds the shortest paths from a single source vertex to all other vertices in a graph, even when the graph has edges with negative weights
+
+## Iteratively relaxing all edges in the graph
+
+**Relaxation** means for each edge `(u, v)`, if the shortest _**known**_ distance to `v` is greater than the distance to `u` plus edge weight `(u, v)`, update the newly found shorter distance
+
+## Graph and Algo
+
+`graph[u][v]` gives the **weight** of the edge from vertex `u` to vertex `v`.
+
+```python
+graph = {
+    0: {1: -1, 2: 4},
+    1: {2: 3, 3: 2, 4: 2},
+    2: {},
+    3: {2: 5, 1: 1},
+    4: {3: -3}
+}
+```
+
+the `dist` dictionary holding the distances from the `start` node (vertex) is
+
+```python
+V = len(graph.keys())
+start = 0
+dist = { v: float('inf') for v in range(V)}
+dist[start] = 0
+print(dist)
+```
+
+```bash
+{0: 0, 1: inf, 2: inf, 3: inf, 4: inf}
+```
+
+## Code
+
+```python
+for _ in range(V - 1):
+    for u in graph:
+        for v in graph[u]:
+            if dist[u] != float('inf') and dist[u] + graph[u][v] < dist[v]:
+                dist[v] = dist[u] + graph[u][v]
+for u in graph:
+    for v in graph[u]:
+        if dist[u] != float('inf') and dist[u] + graph[u][v] < dist[v]:
+            print("Graph contains a negative weight cycle")
+```

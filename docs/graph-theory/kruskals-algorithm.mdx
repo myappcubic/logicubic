@@ -1,0 +1,48 @@
+---
+title: Kruskal's Algorithm
+description: Kruskal's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph
+# image: a thumbnail image to be shown in social media cards
+keywords: [Prim, Algorithm, Tree, MST]
+---
+
+# Kruskal's Algorithm
+
+> Kruskal's Algorithm is a greedy algorithm that builds the Minimum Spanning Tree (MST) for a graph by starting from an arbitrary vertex and growing the MST one edge at a time
+
+Kruskal's algorithm is edge-centric rather than vertex-centric. It works by sorting all the edges by weight and then adding edges to the MST in order of increasing weight, provided they do not form a cycle. Since Kruskal's algorithm does not rely on a specific starting vertex, it doesn't require you to specify one.
+
+Kruskal's explicitly checks for cycles using the `Union-Find` data structure (Disjoint Set), which tracks connected components and ensures that adding an edge does not create a cycle.
+
+```python title="kruskals/graph.py"
+graph = {
+    0: {1: 2, 3: 6},
+    1: {0: 2, 2: 3, 3: 8, 4: 5},
+    2: {1: 3, 4: 7},
+    3: {0: 6, 1: 8, 4: 9},
+    4: {1: 5, 2: 7, 3: 9}
+}
+```
+
+```python title="disjointset.py"
+class DisjointSet:
+    def __init__(self, vertices):
+        self.parent = {v: v for v in vertices}
+        self.rank = {v: 0 for v in vertices}
+
+    def find(self, v):
+        if self.parent[v] != v:
+            self.parent[v] = self.find(self.parent[v])
+        return self.parent[v]
+
+    def union(self, v1, v2):
+        root1 = self.find(v1)
+        root2 = self.find(v2)
+
+        if root1 != root2:
+            if self.rank[root1] > self.rank[root2]:
+                self.parent[root2] = root1
+            else:
+                self.parent[root1] = root2
+                if self.rank[root1] == self.rank[root2]:
+                    self.rank[root2] += 1
+```

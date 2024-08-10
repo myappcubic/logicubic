@@ -1,0 +1,51 @@
+---
+title: Prim's Algorithm
+description: Prim's algorithm finds the Minimum Spanning Tree (MST) of a connected, undirected graph
+# image: a thumbnail image to be shown in social media cards
+keywords: [Prim, Algorithm, Tree, MST]
+---
+
+# Prim's Algorithm
+
+> Prim's Algorithm is a greedy algorithm that builds the Minimum Spanning Tree (MST) for a graph by starting from an arbitrary vertex and growing the MST one edge at a time
+
+MST is a _subset_ of the graph that connects **ALL** vertices together, _without_ any cycles, and with the _minimum_ possible total edge weight
+
+Prim's begins with a single vertex (arbitrarily chosen) and gradually adds the `least expensive edge` that connects a vertex in the growing MST to a vertex outside it.
+
+A heap (Priority Queue) is used to _efficiently_ retrieve the `least expensive edge` that connects the MST to a new vertex.
+
+`heapq` always pops() the edge with the smallest weight that connects the growing `MST` to any unvisited vertex
+
+```python title="prims/graph.py"
+graph = {
+    0: {1: 2, 3: 6},
+    1: {0: 2, 2: 3, 3: 8, 4: 5},
+    2: {1: 3, 4: 7},
+    3: {0: 6, 1: 8, 4: 9},
+    4: {1: 5, 2: 7, 3: 9}
+}
+```
+
+Maintain a heap/priority queue called `edges`.
+
+```python
+import heapq
+mst = [] # Store MST edges
+start = 0 # From vertex 0
+visited = set([start])
+edges = [(cost, start, to) for to, cost in graph[start].items()]
+heapq.heapify(edges)
+```
+
+```python
+while edges:
+    cost, frm, to = heapq.heappop(edges)
+    if to not in visited:
+        visited.add(to)
+        mst.append((frm, to, cost))
+        for to_next, cost in graph[to].items():
+            if to_next not in visited:
+                heapq.heappush(edges, (cost, to, to_next))
+print(mst)
+```

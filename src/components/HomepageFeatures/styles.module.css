@@ -1,0 +1,33 @@
+.features {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.featureSvg {
+  height: 64px;
+  width: 64px;
+}
+
+.iconWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem;
+  background-color: var(--ifm-background-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.subtitle {
+  font-size: 0.9rem;
+  color: var(--ifm-color-emphasis-600);
+  margin-bottom: 1rem;
+}
+
+.h4_styles {
+  font-weight: 500;
+}

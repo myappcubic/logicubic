@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1088" height="688" viewBox="0 0 1088 688">
+  <title>Abstract Pastel Design</title>
+  <g id="Abstract_Group" transform="translate(-57 -56)">
+    <!-- Background Abstract Shape -->
+    <path id="Abstract_Shape_1" d="M1020,570c-10,40-30,90-50,120-40,50-80,70-120,80a210,210,0,0,1-30,10c-60,20-130,10-180,0a600,600,0,0,0-100-10q-15-.6-30-.6c-20,0-300,5-370-130-20-35-30-80-40-130-20-150,60-240,140-300,160-120,380-110,530,10C950,290,1050,400,1020,570Z" transform="translate(-56 -106)" fill="#ffd1dc"/>
+    <!-- Additional Layered Shape -->
+    <path id="Abstract_Shape_2" d="M980,680c-40,50-80,60-110,80-30,20-60,40-100,30-60-20-120-10-180,0q-20-.6-30-.6-30,0-50,2c-100,7-250-10-320-140L380,280,450,450l20,50,50-70L540,380l130,150,40-80L960,660l20,20Z" transform="translate(-56 -106)" fill="#c2e9fb"/>
+    <!-- Abstract Circles -->
+    <circle id="Abstract_Circle_1" cx="5" cy="5" r="5" transform="translate(490 100)" fill="#f8c8dc"/>
+    <circle id="Abstract_Circle_2" cx="4" cy="4" r="4" transform="translate(400 200)" fill="#ffdfba"/>
+    <circle id="Abstract_Circle_3" cx="3" cy="3" r="3" transform="translate(600 220)" fill="#d5e8d4"/>
+    <circle id="Abstract_Circle_4" cx="3" cy="3" r="3" transform="translate(180 260)" fill="#e4bad4"/>
+    <circle id="Abstract_Circle_5" cx="3" cy="3" r="3" transform="translate(620 100)" fill="#f6d8ae"/>
+    <circle id="Abstract_Circle_6" cx="3" cy="3" r="3" transform="translate(740 190)" fill="#f9c5d1"/>
+    <circle id="Abstract_Circle_7" cx="3" cy="3" r="3" transform="translate(860 350)" fill="#d4a5a5"/>
+    <!-- Abstract Geometric Shapes -->
+    <path id="Abstract_Geo_1" d="M300,120h-5v-5h-2v5h-5v2h5v5h2v-5h5Z" fill="#d5e1df"/>
+    <path id="Abstract_Geo_2" d="M850,420h-5v-5h-2v5h-5v2h5v5h2v-5h5Z" fill="#f6d7a7"/>
+    <ellipse id="Abstract_Ellipse_1" cx="540" cy="30" rx="540" ry="30" transform="translate(0 580)" fill="#f9e9c2"/>
+    <!-- Lower Abstract Wave -->
+    <path id="Abstract_Wave_1" d="M630,680c0,30-20,20-40,20s-40,10-40-20,40-100,40-100S630,650,630,680Z" transform="translate(-56 -106)" fill="#ffb7c5"/>
+    <rect id="Abstract_Rectangle_1" width="90" height="20" rx="10" transform="translate(490 600)" fill="#b0c7a1"/>
+    <rect id="Abstract_Rectangle_2" width="90" height="20" rx="10" transform="translate(490 580)" fill="#b3c2bf"/>
+    <!-- Upper Abstract Shape -->
+    <path id="Abstract_Shape_3" d="M195,600c0,60,40,100,80,100" transform="translate(-56 -106)" fill="#d3e9e5"/>
+    <path id="Abstract_Shape_4" d="M275,700c0-60,40-100,90-100" transform="translate(-56 -106)" fill="#e2c9c7"/>
+    <!-- Small Abstract Shapes -->
+    <path id="Abstract_Shape_5" d="M230,600c0,50,20,90,50,90" transform="translate(-56 -106)" fill="#c2d4d8"/>
+    <path id="Abstract_Shape_6" d="M270,700c0-70,50-130,100-130" transform="translate(-56 -106)" fill="#ffd1dc"/>
+  </g>
+</svg>
