@@ -126,7 +126,7 @@ def hanoi(n, source, target, auxiliary):
 hanoi(3, 'A', 'C', 'B')
 ```
 
-```c
+```swift
 Move disk 1 from A to C
 Move disk 2 from A to B
 Move disk 1 from C to B
