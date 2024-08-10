@@ -34,11 +34,34 @@ graph = {
 from collections import defaultdict
 in_degree = defaultdict(int)
 for node in graph:
-    for neighbor in graph[node]:
+    for neighbor in graph[node]: # [neighbor] takes one back connection
         in_degree[neighbor] += 1
+print(in_degree)
 ```
 
 ```bash
-defaultdict(int,
-            {'C': 2, 'D': 1, 'E': 1, 'F': 1, 'H': 1, 'G': 1, 'A': 0, 'B': 0})
+defaultdict(int, {'C': 2, 'D': 1, 'E': 1, 'F': 1, 'H': 1, 'G': 1})
+```
+
+```python
+from collections import deque
+queue = deque([node for node in graph if in_degree[node] == 0])
+print(queue)
+```
+
+```bash
+deque(['A', 'B'])
+```
+
+```python
+topo_order = []
+while queue:
+    node = queue.popleft()
+    topo_order.append(node)
+    for neighbor in graph[node]:
+        in_degree[neighbor] -= 1
+        if in_degree[neighbor] == 0:
+            queue.append(neighbor)
+print(topo_order)
+# ['A', 'B', 'C', 'D', 'E', 'F', 'H', 'G']
 ```

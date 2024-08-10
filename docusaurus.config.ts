@@ -75,9 +75,23 @@ const config: Config = {
           customCss: './src/css/custom.css',
         },
         // Will be passed to @docusaurus/plugin-sitemap (false to disable)
-        sitemap: {},
+        sitemap: {
+          lastmod: 'date',
+          changefreq: "hourly",
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
+          createSitemapItems: async (params) => {
+            const { defaultCreateSitemapItems, ...rest } = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.filter((item) => !item.url.includes('/page/'));
+          },
+        },
         // Will be passed to @docusaurus/plugin-google-gtag (only enabled when explicitly specified)
-        //gtag: {},
+        gtag: {
+          trackingID: 'G-5YS5B3QPQF',
+          anonymizeIP: true
+        },
         // Will be passed to @docusaurus/plugin-google-tag-manager (only enabled when explicitly specified)
         //googleTagManager: {},
       } satisfies Preset.Options,
