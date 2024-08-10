@@ -2,7 +2,11 @@
 title: Recursion Intro
 description: Understanding the Anatomy of a Recursive Function
 # image: a thumbnail image to be shown in social media cards
-keywords: [Recursion, Algorithm, Python]
+keywords:
+  - Recursion
+  - Algorithm
+  - Python
+tags: [Recursion, Algorithm, Python]
 ---
 
 # Recursion and implementations in Python
@@ -135,3 +139,100 @@ Move disk 1 from B to A
 Move disk 2 from B to C
 Move disk 1 from A to C
 ```
+
+### All Permutations of a String
+
+**Problem**: Generate all permutations of a given string.
+
+> Not a super hard problem.
+>
+> `def permute(s, answer):`
+>
+> - **Base Case**: `print` the cumulated `answer`, and `return` if the _input `s`_ is empty.
+> - **Recursive Case**: (some _string slicing_) take one `char` out along `s`, then put the rest of them together (`ros`) as the new `s`.
+
+```python
+def permute(s, answer):
+    if len(s) == 0:
+        print(answer)
+        return
+    for i in range(len(s)):
+        # Choose the ith character and append it to the answer
+        char = s[i]
+        # Form a new string excluding the ith character
+        ros = s[:i] + s[i+1:]
+        # Recur with the new string and the updated answer
+        permute(ros, answer + char)
+
+# Test
+permute("ABC", "")
+```
+
+:::note
+Even not being _most_ ideal, the following should also work. 🤔
+
+```python
+def permute(s, answer):
+    if len(s) == 1:
+        print(answer + s)
+        return
+    for i in range(len(s)):
+        char = s[i]
+        ros = s[:i] + s[i+1:] # str slicing
+        permute(ros, answer + char)
+```
+
+:::
+
+### Tree Recursion (Binary Tree Traversal)
+
+Should _mostly_ memorized by now.
+
+:::info
+This a Binary Tree in Python:
+
+```python
+class TreeNode:
+    def __init__(self, value):
+        self.value = value
+        self.left = None
+        self.right = None
+```
+
+:::
+
+```python
+def inorder_traversal(root):
+    if not root:
+        return []
+    return (inorder_traversal(root.left) +
+            [root.value] +
+            inorder_traversal(root.right))
+```
+
+## Understanding Backtracking
+
+`Backtracking` builds candidates for the solution _incrementally_ and _abandons_ a candidate ("`backtracks`") _as soon as_ the candidate is determined _cannot_ lead to a valid solution.
+
+```python title="recursion/backtracking-template.py"
+def backtrack(candidate):
+    if is_solution(candidate):
+        output(candidate)
+        return
+
+    for next_candidate in list_of_candidates:
+        if is_valid(next_candidate):
+            place(next_candidate)
+            backtrack(next_candidate)
+            remove(next_candidate)
+```
+
+A **base cases** often include:
+
+- Reaching the end of the input
+- Finding a valid solution
+- Exceeding constraints (e.g., sum too large, path too long)
+
+A **recursive case** involves iterating through **ALL** possible choices, making _each_ valid choice, **recursing**, and then **undoing** the choice (**backtracking**).
+
+Continue on the following article: [Backtracking](./backtracking)

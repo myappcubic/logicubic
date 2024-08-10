@@ -1,16 +1,20 @@
-facebook:
-  label: Facebook
-  permalink: /facebook
-  description: Facebook tag description
-hello:
-  label: Hello
-  permalink: /hello
+recursion:
+  label: Recursion
+  permalink: /recursion
+  description: recursion tag description
+python:
+  label: Python
+  permalink: /python
   description: Hello tag description
-docusaurus:
-  label: Docusaurus
-  permalink: /docusaurus
+data-structure:
+  label: Data Structure
+  permalink: /data-structure
   description: Docusaurus tag description
-hola:
-  label: Hola
-  permalink: /hola
-  description: Hola tag description
+appcubic:
+  label: AppCubic
+  permalink: /appcubic
+  description: appcubic tag description
+programming:
+  label: Programming
+  permalink: /programming
+  description: programming tag description
